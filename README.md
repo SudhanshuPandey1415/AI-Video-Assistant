@@ -8,6 +8,10 @@
 ![LangChain](https://img.shields.io/badge/Framework-LangChain-brightgreen.svg)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
+<p align="center">
+  <img src="Image/Screenshot%202026-09-30%20230422.png" alt="AI Video Assistant UI Dashboard" width="100%" />
+</p>
+
 ---
 
 ## 🌟 Key Features
