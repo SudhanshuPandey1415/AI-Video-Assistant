@@ -1,0 +1,60 @@
+# ── AI Video Assistant — requirements.txt ─────────────────────────────────────
+
+# Python 3.10+ recommended
+
+# ── Audio / Video ──────────────────────────────────────────────────────────────
+
+yt-dlp>=2024.4.9
+pydub>=0.25.1
+ffmpeg-python>=0.2.0
+audioop-lts>=0.2.0; python_version >= "3.13"
+
+# ── Speech-to-Text ────────────────────────────────────────────────────────────
+
+openai-whisper>=20231117
+torch>=2.2.0
+torchaudio>=2.2.0
+
+# ── Translation ───────────────────────────────────────────────────────────────
+
+google-genai>=1.0.0
+
+# ── LangChain + Mistral ────────────────────────────────────────────────────────
+
+langchain>=0.2.0
+langchain-core>=0.2.0
+langchain-community>=0.2.0
+langchain-mistralai>=0.1.0
+mistralai>=0.4.0
+langchain-text-splitters>=0.2.0
+
+# ── RAG / Vector Database ─────────────────────────────────────────────────────
+
+chromadb>=0.5.0
+langchain-chroma>=0.1.0
+sentence-transformers>=3.0.0
+langchain-huggingface>=0.0.3
+huggingface-hub>=0.23.0
+tiktoken>=0.7.0
+
+# ── Streamlit ─────────────────────────────────────────────────────────────────
+
+streamlit>=1.35.0
+streamlit-extras>=0.4.0
+watchdog>=4.0.0
+
+# ── PDF / TXT Export ──────────────────────────────────────────────────────────
+
+reportlab>=4.2.0
+fpdf2>=2.7.9
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+
+python-dotenv>=1.0.0
+numpy>=1.26.0
+tqdm>=4.66.0
+requests>=2.32.0
+
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+pydantic>=2.7.0

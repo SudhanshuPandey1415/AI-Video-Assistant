@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Video Assistant</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header class="navbar">
+  <div class="brand">
+    <div class="brand-mark">✦</div>
+    <div>
+      <div class="brand-name">AI Video Assistant</div>
+      <div class="brand-sub">MEETING INTELLIGENCE</div>
+    </div>
+  </div>
+  <div class="local-pill"><i></i> LOCAL AI</div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div class="eyebrow">AI MEETING INTELLIGENCE</div>
+    <h1>Turn long<br>conversations<br><span>into clear decisions.</span></h1>
+    <p>Drop in a YouTube link or local media file. The assistant transcribes, summarizes, extracts decisions and lets you chat with the meeting.</p>
+  </section>
+
+  <section class="source-card">
+    <div class="section-label">01 / SOURCE</div>
+    <div class="source-row">
+      <div>
+        <label>YouTube URL or local file path</label>
+        <input id="sourceInput" placeholder="https://youtube.com/watch?v=... or C:\path\meeting.mp4">
+      </div>
+      <button id="analyzeBtn" class="primary">Analyze meeting <b>→</b></button>
+    </div>
+    <div class="source-options">
+      <div>
+        <label>Transcription mode</label>
+        <select id="languageInput">
+          <option value="english">English · Whisper GPU</option>
+          <option value="hinglish">Hinglish · Whisper GPU</option>
+        </select>
+      </div>
+      <span class="gpu-note">● Your RTX 4050 can accelerate local Whisper + embeddings.</span>
+    </div>
+  </section>
+
+  <!-- REAL-TIME PROGRESS -->
+  <section id="progressCard" class="progress-card hidden">
+    <div class="progress-head">
+      <div>
+        <div class="section-label">02 / PROCESSING</div>
+        <h2 id="progressTitle">Preparing your meeting...</h2>
+        <p id="progressMessage">Starting AI pipeline</p>
+      </div>
+      <div id="progressPercent" class="progress-percent">0%</div>
+    </div>
+
+    <div class="progress-track">
+      <div id="progressBar" class="progress-bar"></div>
+    </div>
+
+    <div class="stage-grid">
+      <div id="stage-download" class="stage active">
+        <span class="stage-icon">↓</span>
+        <div><b>Audio</b><small>Download & prepare</small></div>
+      </div>
+      <div id="stage-transcribe" class="stage">
+        <span class="stage-icon">◉</span>
+        <div><b>Transcription</b><small>Whisper / Sarvam</small></div>
+      </div>
+      <div id="stage-analyze" class="stage">
+        <span class="stage-icon">✦</span>
+        <div><b>AI Analysis</b><small>Summary & extraction</small></div>
+      </div>
+      <div id="stage-rag" class="stage">
+        <span class="stage-icon">⌘</span>
+        <div><b>RAG</b><small>Index transcript</small></div>
+      </div>
+    </div>
+
+    <div class="live-line"><span></span> LIVE PROCESSING</div>
+  </section>
+
+  <section id="resultsSection" class="hidden">
+    <div class="brief-header">
+      <div class="section-label">MEETING BRIEF</div>
+      <h2 id="meetingTitle">Meeting Analysis</h2>
+    </div>
+
+    <section class="summary-card">
+      <div class="card-top">
+        <div><div class="small-label">EXECUTIVE SUMMARY</div><h2>Summary</h2></div>
+        <button id="copySummaryBtn" class="secondary">Copy summary</button>
+      </div>
+      <div id="summaryContent" class="ai-content"></div>
+    </section>
+
+    <section class="action-card">
+      <div class="small-label">ACTION ITEMS</div>
+      <h2>What needs to happen</h2>
+      <div id="actionItemsContent" class="ai-content compact"></div>
+    </section>
+
+    <div class="three-grid">
+      <section class="info-card">
+        <div class="small-label">KEY DECISIONS</div>
+        <h3>Decisions</h3>
+        <div id="decisionsContent" class="ai-content compact"></div>
+      </section>
+      <section class="info-card">
+        <div class="small-label">OPEN QUESTIONS</div>
+        <h3>Follow-ups</h3>
+        <div id="questionsContent" class="ai-content compact"></div>
+      </section>
+      <section class="info-card">
+        <div class="small-label">SOURCE</div>
+        <h3>Full Transcript</h3>
+        <button id="transcriptButton" class="transcript-button">View transcript →</button>
+      </section>
+    </div>
+
+    <section id="transcriptSection" class="transcript-section hidden">
+      <div class="small-label">SOURCE TEXT</div>
+      <h2>Full Transcript</h2>
+      <pre id="transcriptContent"></pre>
+    </section>
+
+    <section class="rag-section">
+      <div class="rag-head">
+        <div>
+          <div class="small-label">ASK YOUR MEETING</div>
+          <h2>Talk to the transcript.</h2>
+          <p>Answers are grounded in the indexed meeting context.</p>
+        </div>
+        <div class="rag-badge"><span></span> RAG ACTIVE</div>
+      </div>
+      <div id="chatContainer" class="chat-container">
+        <div class="chat-empty">✦ &nbsp; Ask anything about your meeting transcript.</div>
+      </div>
+      <div class="chat-row">
+        <input id="chatInput" placeholder="e.g. What did we decide about the database?">
+        <button id="askButton">Ask →</button>
+      </div>
+    </section>
+  </section>
+
+  <section id="emptySection" class="empty-section">
+    <div class="empty-icon">✦</div>
+    <h2>Ready to analyze</h2>
+    <p>Paste a YouTube URL or local media file above and start your meeting analysis.</p>
+  </section>
+</main>
+
+<footer>AI Video Assistant · Local Whisper · Mistral · ChromaDB RAG</footer>
+<script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/*
+!downloads/.gitkeep
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# Environment Variables & Secrets (CRITICAL)
+.env
+.env.local
+.env.*.local
+*.env
+!.env.example
+
+# Vector Database & Embeddings
+vector_db/
+chroma.sqlite3
+*.chroma/
+
+# Audio and Video Media Files (Local / Downloaded)
+*.wav
+*.mp3
+*.mp4
+*.m4a
+*.webm
+*.ogg
+*.flac
+*.aac
+
+# Whisper & HuggingFace Models Cache
+models/
+.cache/
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
